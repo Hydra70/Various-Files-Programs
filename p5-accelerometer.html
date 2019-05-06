@@ -13,23 +13,27 @@
   
   <body>
     <h1 id="ax"></h1>
+    <h1 id="rx"></h1>
     
     <script>
       var ax;
       var axHigh = 0;
+      var rx;
       
       function setup() {
-        creatCanvas(window.innerWidth,window.innerHeight);
+        creatCanvas(window.innerWidth,window.innerHeight,WEBGL);
       }
       
       function draw() {
         background(220,50);
         ax = accelerationX;
-        if (ax < axHigh) {
+        if (ax > axHigh) {
           axHigh = ax;
           document.getElementById('ax').innerHTML = "X Accel = " + axHigh;
         }
-        documant.getElementById('ax').innerHTML = "X Accel = " + ax;
+        document.getElementById('ax').innerHTML = "X Accel = " + ax;
+        rx = rotationX;
+        document.getElementById('rx').innerHTML = "X Rotation = " + rx;
       }
       
     </script>
