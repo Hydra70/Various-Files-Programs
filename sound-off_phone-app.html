@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="p5/p5.min.js"></script>
+    
+    <style>
+      body{
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1 id="rwr"></h1>
+    
+    <script>
+      let value = 0;
+      
+      function setup() {
+        creatCanvas(window.innerWidth,window.innerHeight);
+      }
+      
+      function draw() {
+        background(220,50);
+        fill(value);
+        rect(25,25,50,50);
+      }
+      
+      function deviceMoved() {
+        document.getElementById('rwr').innerHTML = "IR LOCK";
+        value = value + 5;
+        if (value > 255) {
+          value = 0;
+        }
+      }
+      
+    </script>
+  </body>
+</html>
