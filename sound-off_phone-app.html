@@ -3,37 +3,60 @@
     <script src="p5/p5.min.js"></script>
     
     <style>
-      body{
-        overflow: hidden;
-        padding: 0;
-        margin: 0;
-      }
+      
     </style>
   </head>
   
   <body>
-    <h1 id="rwr"></h1>
+    <h1 id="rx"></h1>
+    <h1 id="ry"></h1>
+    <h1 id="rz"></h1>
+    <hr>
+    <p>Default</p>
+    <h1 id="defx"></h1>
+    <h1 id="defy"></h1>
+    <h1 id="defz"></h1>
     
     <script>
-      let value = 0;
+      var rz = 0;
+      var rx = 0;
+      var ry = 0;
+      
+      var defz;
+      var defx;
+      var defy;
       
       function setup() {
-        creatCanvas(window.innerWidth,window.innerHeight);
+        createCanvas(window.innerWidth,window.innerHeight);
+        
       }
       
       function draw() {
+        rz = rotationZ;
+        rx = rotationX;
+        ry = rotationY;
+        
+        //defz = rotationZ;
+        defx = rotationX;
+        //defy = rotationY;
+        
+        if (rx < defx) {
+          defx = rx;
+          document.getElementById('defx').innerHTML = "X = " + defx;
+        }
+        
+        /*if ((rx + 5 < defx) || (rx - 5 > defx)) {
+          document.body.style.backgroundColor = "red";
+        }*/
+        
+        document.getElementById('rz').innerHTML = "Z = " + rotationZ;
+        document.getElementById('rx').innerHTML = "X = " + rotationX;
+        document.getElementById('ry').innerHTML = "Y = " + rotationY;
+        
+        //document.getElementById('defz').innerHTML = "Z = " + defz;
+        //document.getElementById('defy').innerHTML = "Y = " + defy;
       }
       
-      function deviceMoved() {
-        document.getElementById('rwr').innerHTML = "IR LOCK";
-        value = value + 1;
-        if (value % 2 == 0) {
-          document.body.style.backgroundColor = "red";
-        }
-        else {
-          document.body.style.backgroundColor = "white";
-        }
-      }
       
     </script>
   </body>
