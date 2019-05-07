@@ -22,16 +22,16 @@
       }
       
       function draw() {
-        background(220,50);
-        fill(value);
-        rect(25,25,50,50);
       }
       
       function deviceMoved() {
         document.getElementById('rwr').innerHTML = "IR LOCK";
-        value = value + 5;
-        if (value > 255) {
-          value = 0;
+        value = value + 1;
+        if (value % 2 == 0) {
+          document.body.style.backgroundColor = "red";
+        }
+        else {
+          document.body.style.backgroundColor = "white";
         }
       }
       
